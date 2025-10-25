@@ -27,6 +27,7 @@ public class RacingCarController {
         consoleOutput.attemptCountPrompt();
         String attemptCount = Console.readLine();
         inputValidator.checkEmptyInput(attemptCount);
+        inputValidator.isNumber(attemptCount);
 
         consoleOutput.resultStart();
         List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
