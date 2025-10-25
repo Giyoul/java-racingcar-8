@@ -13,7 +13,10 @@ public class RacingCarController {
     }
 
     public void run(){
-        consoleOutput.printCarNamePrompt();
+        consoleOutput.carNamePrompt();
         String carNameInput = consoleInput.getCarName();
+
+        consoleOutput.attemptCountPrompt();
+
     }
 }
