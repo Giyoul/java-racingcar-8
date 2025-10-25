@@ -19,5 +19,6 @@ public class RacingCarController {
         inputValidator.checkEmptyInput(carName);
 
         consoleOutput.attemptCountPrompt();
+        String attemptCount = Console.readLine();
     }
 }
