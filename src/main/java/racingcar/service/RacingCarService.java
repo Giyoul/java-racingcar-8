@@ -10,4 +10,8 @@ public class RacingCarService {
             .map(RacingCar::new)
             .toList();
     }
+
+    public void moveCars(List<RacingCar> inputList){
+
+    }
 }

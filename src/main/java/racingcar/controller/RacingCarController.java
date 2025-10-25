@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.domain.RacingCar;
 import racingcar.service.RacingCarService;
 import racingcar.validator.InputValidator;
@@ -28,5 +29,7 @@ public class RacingCarController {
         inputValidator.checkEmptyInput(attemptCount);
 
         List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
+        IntStream.range(0, Integer.parseInt(attemptCount))
+                .forEach(it -> racingCarService.moveCars(racingCarList));
     }
 }
