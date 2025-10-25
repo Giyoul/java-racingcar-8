@@ -21,4 +21,17 @@ public class RacingCarService {
     public boolean determineMove(){
         return Randoms.pickNumberInRange(0, 9) >= 4;
     }
+
+    public List<RacingCar> findWinners(List<RacingCar> racingCarList) {
+        int winnerPosition = findWinnerPosition(racingCarList);
+        return racingCarList.stream().filter(car -> car.getPosition() == winnerPosition).toList();
+    }
+
+    public int findWinnerPosition(List<RacingCar> racingCarList){
+        int winnerPosition = 0;
+        for (var car : racingCarList) {
+            winnerPosition = Math.max(winnerPosition, car.getPosition());
+        }
+        return winnerPosition;
+    }
 }

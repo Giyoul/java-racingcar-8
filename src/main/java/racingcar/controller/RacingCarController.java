@@ -35,5 +35,8 @@ public class RacingCarController {
                     racingCarService.moveCars(racingCarList);
                     consoleOutput.turnResult(racingCarList);
                 });
+
+        List<RacingCar> winnerRacingCarList = racingCarService.findWinners(racingCarList);
+        consoleOutput.finalResult(winnerRacingCarList);
     }
 }

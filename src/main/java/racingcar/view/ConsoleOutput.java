@@ -24,4 +24,12 @@ public class ConsoleOutput {
         System.out.println(result);
         System.out.println();
     }
+
+    public void finalResult(List<RacingCar> winnerRacingCarList) {
+        String result = "최종 우승자 : ";
+        for (var car : winnerRacingCarList) {
+            result = car.addName(result);
+        }
+        System.out.println(result);
+    }
 }
