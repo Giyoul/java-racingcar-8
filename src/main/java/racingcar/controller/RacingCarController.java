@@ -1,16 +1,21 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import racingcar.domain.RacingCar;
+import racingcar.service.RacingCarService;
 import racingcar.validator.InputValidator;
 import racingcar.view.ConsoleOutput;
 
 public class RacingCarController {
     private final ConsoleOutput consoleOutput;
     private final InputValidator inputValidator;
+    private final RacingCarService racingCarService;
 
     public RacingCarController() {
         this.consoleOutput = new ConsoleOutput();
         this.inputValidator = new InputValidator();
+        this.racingCarService = new RacingCarService();
     }
 
     public void run(){
@@ -21,5 +26,7 @@ public class RacingCarController {
         consoleOutput.attemptCountPrompt();
         String attemptCount = Console.readLine();
         inputValidator.checkEmptyInput(attemptCount);
+
+        List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
     }
 }
