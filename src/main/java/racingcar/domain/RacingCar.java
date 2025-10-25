@@ -12,4 +12,8 @@ public class RacingCar {
     public void move(){
         this.position++;
     }
+
+    public String displayPosition() {
+        return name + " : " + "-".repeat(position);
+    }
 }

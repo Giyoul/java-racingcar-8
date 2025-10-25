@@ -31,6 +31,9 @@ public class RacingCarController {
         consoleOutput.resultStart();
         List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
         IntStream.range(0, Integer.parseInt(attemptCount))
-                .forEach(it -> racingCarService.moveCars(racingCarList));
+                .forEach(it -> {
+                    racingCarService.moveCars(racingCarList);
+                    consoleOutput.turnResult(racingCarList);
+                });
     }
 }
