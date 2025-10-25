@@ -9,4 +9,7 @@ public class RacingCar {
         this.position = 0;
     }
 
+    public void move(){
+        this.position++;
+    }
 }
