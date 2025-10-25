@@ -15,8 +15,8 @@ public class RacingCarController {
 
     public void run(){
         consoleOutput.carNamePrompt();
-        String carNameInput = Console.readLine();
-        inputValidator.checkEmptyInput(carNameInput);
+        String carName = Console.readLine();
+        inputValidator.checkEmptyInput(carName);
 
         consoleOutput.attemptCountPrompt();
     }
