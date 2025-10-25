@@ -8,4 +8,8 @@ public class ConsoleOutput {
     public void attemptCountPrompt() {
         System.out.println("시도할 횟수는 몇 회인가요?\n");
     }
+
+    public void resultStart(){
+        System.out.println("실행 결과");
+    }
 }

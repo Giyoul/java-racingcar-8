@@ -28,6 +28,7 @@ public class RacingCarController {
         String attemptCount = Console.readLine();
         inputValidator.checkEmptyInput(attemptCount);
 
+        consoleOutput.resultStart();
         List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
         IntStream.range(0, Integer.parseInt(attemptCount))
                 .forEach(it -> racingCarService.moveCars(racingCarList));
