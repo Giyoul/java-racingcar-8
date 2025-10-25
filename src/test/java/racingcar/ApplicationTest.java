@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -29,6 +31,60 @@ class ApplicationTest extends NsTest {
             assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                 .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Nested
+    class 빈_입력_예외_테스트 {
+        @Test
+        void 빈_자동차_이름_입력() {
+            assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                    .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+        @Test
+        void 공백_자동차_이름_입력() {
+            assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" ", "1"))
+                    .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+        @Test
+        void 빈_횟수_입력() {
+            assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", ""))
+                    .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+        @Test
+        void 공백_횟수_입력() {
+            assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", " "))
+                    .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+    }
+
+    @Nested
+    class 잘못된_입력_테스트 {
+        @Test
+        void 시도할_횟수가_숫자가_아닌경우() {
+            assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "a"))
+                    .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+
+        @Test
+        void 자동차_이름이_6글자_이상인_경우() {
+            assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "4"))
+                    .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
     }
 
     @Override
