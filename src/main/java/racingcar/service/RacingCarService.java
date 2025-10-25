@@ -34,4 +34,12 @@ public class RacingCarService {
         }
         return winnerPosition;
     }
+
+    public void validateCarNames(List<RacingCar> racingCarList) {
+        racingCarList.forEach(car -> {
+            if (car.getNameLength() > 5) {
+                throw new IllegalArgumentException("이름의 길이는 5를 넘어갈 수 없습니다.");
+            }
+        });
+    }
 }

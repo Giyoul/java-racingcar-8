@@ -27,4 +27,8 @@ public class RacingCar {
     public int getPosition() {
         return position;
     }
+
+    public int getNameLength(){
+        return name.length();
+    }
 }

@@ -30,6 +30,7 @@ public class RacingCarController {
 
         consoleOutput.resultStart();
         List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
+        racingCarService.validateCarNames(racingCarList);
         IntStream.range(0, Integer.parseInt(attemptCount))
                 .forEach(it -> {
                     racingCarService.moveCars(racingCarList);
