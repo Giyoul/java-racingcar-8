@@ -15,8 +15,8 @@ public class RacingCarService {
 
     public void moveCars(List<RacingCar> inputList){
         inputList.stream()
-                .filter(car -> determineMove())
-                .forEach(RacingCar::move);
+            .filter(car -> determineMove())
+            .forEach(RacingCar::move);
     }
 
     public boolean determineMove(){
@@ -29,17 +29,16 @@ public class RacingCarService {
     }
 
     public int findWinnerPosition(List<RacingCar> racingCarList){
-        int winnerPosition = 0;
-        for (var car : racingCarList) {
-            winnerPosition = Math.max(winnerPosition, car.getPosition());
-        }
-        return winnerPosition;
+        return racingCarList.stream()
+            .mapToInt(RacingCar::getPosition)
+            .max()
+            .orElse(0);
     }
 
     public void validateCarNames(List<RacingCar> racingCarList) {
         racingCarList.stream()
-                .filter(car -> car.getNameLength() > 5)
-                .findAny()
-                .ifPresent(car -> RacingCarExceptionHelper.racingCarNameLengthException());
+            .filter(car -> car.getNameLength() > 5)
+            .findAny()
+            .ifPresent(car -> RacingCarExceptionHelper.racingCarNameLengthException());
     }
 }
