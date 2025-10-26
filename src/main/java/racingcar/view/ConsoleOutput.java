@@ -17,17 +17,17 @@ public class ConsoleOutput {
         System.out.println("실행 결과");
     }
 
-    public void turnResult(List<RacingCar> carList) {
-        String result = carList.stream()
+    public void turnResult(List<RacingCar> racingCarList) {
+        String result = racingCarList.stream()
                 .map(RacingCar::displayPosition)
                 .collect(Collectors.joining("\n"));
         System.out.println(result);
         System.out.println();
     }
 
-    public void finalResult(List<RacingCar> winnerRacingCarList) {
+    public void finalResult(List<RacingCar> winners) {
         String result = "최종 우승자 : " +
-                winnerRacingCarList.stream()
+                winners.stream()
                     .map(RacingCar::getName)
                     .collect(Collectors.joining(", "));
         System.out.println(result);
