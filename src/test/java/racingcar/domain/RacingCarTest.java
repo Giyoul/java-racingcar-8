@@ -12,4 +12,11 @@ public class RacingCarTest {
         assertThat(car.getPosition()).isEqualTo(1);
         assertThat(car.getName()).isEqualTo("pobi");
     }
+
+    @Test
+    void 자동차_위치_표시_테스트() {
+        RacingCar car = new RacingCar("pobi");
+        car.move();
+        assertThat(car.displayPosition()).isEqualTo("pobi : -");
+    }
 }
