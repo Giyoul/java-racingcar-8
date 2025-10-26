@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,5 +30,12 @@ public class RacingCarServiceTest {
         );
         List<RacingCar> winners = racingCarService.findWinners(cars);
         assertThat(winners).hasSize(2);
+    }
+
+    @Test
+    void 자동차_이름_길이_검증_테스트() {
+        List<RacingCar> cars = List.of(new RacingCar("pobipobi"));
+        assertThatThrownBy(() -> racingCarService.validateCarNames(cars))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
