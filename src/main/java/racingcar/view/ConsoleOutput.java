@@ -18,9 +18,17 @@ public class ConsoleOutput {
     }
 
     public void turnResult(List<RacingCar> racingCarList) {
-        String result = racingCarList.stream()
+        String formattedResult = formatTurnResult(racingCarList);
+        printTurnResult(formattedResult);
+    }
+
+    private String formatTurnResult(List<RacingCar> racingCarList) {
+        return racingCarList.stream()
                 .map(RacingCar::displayPosition)
                 .collect(Collectors.joining("\n"));
+    }
+
+    private void printTurnResult(String result) {
         System.out.println(result);
         System.out.println();
     }
