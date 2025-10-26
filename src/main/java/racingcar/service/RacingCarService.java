@@ -25,7 +25,13 @@ public class RacingCarService {
 
     public List<RacingCar> findWinners(List<RacingCar> racingCarList) {
         int winnerPosition = findWinnerPosition(racingCarList);
-        return racingCarList.stream().filter(car -> car.getPosition() == winnerPosition).toList();
+        return getCarsAtWinnerPosition(racingCarList, winnerPosition);
+    }
+
+    private List<RacingCar> getCarsAtWinnerPosition(List<RacingCar> racingCarList, int winnerPosition) {
+        return racingCarList.stream()
+                .filter(car -> car.getPosition() == winnerPosition)
+                .toList();
     }
 
     public int findWinnerPosition(List<RacingCar> racingCarList){
