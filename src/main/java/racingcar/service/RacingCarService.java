@@ -13,8 +13,8 @@ public class RacingCarService {
             .toList();
     }
 
-    public void moveCars(List<RacingCar> inputList){
-        inputList.stream()
+    public void moveCars(List<RacingCar> racingCarList){
+        racingCarList.stream()
             .filter(car -> determineMove())
             .forEach(RacingCar::move);
     }

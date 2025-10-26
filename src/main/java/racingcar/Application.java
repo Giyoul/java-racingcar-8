@@ -5,7 +5,7 @@ import racingcar.controller.RacingCarController;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        RacingCarController racingcarController = new RacingCarController();
-        racingcarController.run();
+        RacingCarController racingCarController = new RacingCarController();
+        racingCarController.run();
     }
 }

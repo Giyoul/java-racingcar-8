@@ -33,7 +33,7 @@ public class RacingCarController {
         List<RacingCar> racingCarList = racingCarService.parseCarNames(carName);
         racingCarService.validateCarNames(racingCarList);
         IntStream.range(0, Integer.parseInt(attemptCount))
-                .forEach(it -> {
+                .forEach(turn -> {
                     racingCarService.moveCars(racingCarList);
                     consoleOutput.turnResult(racingCarList);
                 });
