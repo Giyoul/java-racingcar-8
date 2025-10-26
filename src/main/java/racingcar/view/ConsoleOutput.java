@@ -24,8 +24,8 @@ public class ConsoleOutput {
 
     private String formatTurnResult(List<RacingCar> racingCarList) {
         return racingCarList.stream()
-                .map(RacingCar::displayPosition)
-                .collect(Collectors.joining("\n"));
+            .map(RacingCar::displayPosition)
+            .collect(Collectors.joining("\n"));
     }
 
     private void printTurnResult(String result) {
@@ -34,10 +34,18 @@ public class ConsoleOutput {
     }
 
     public void finalResult(List<RacingCar> winners) {
-        String result = "최종 우승자 : " +
-                winners.stream()
-                    .map(RacingCar::getName)
-                    .collect(Collectors.joining(", "));
-        System.out.println(result);
+        String formattedResult = formatFinalResult(winners);
+        printFinalResult(formattedResult);
+    }
+
+    private String formatFinalResult(List<RacingCar> winners){
+        return "최종 우승자 : " +
+            winners.stream()
+                .map(RacingCar::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private void printFinalResult(String formattedResult) {
+        System.out.println(formattedResult);
     }
 }
