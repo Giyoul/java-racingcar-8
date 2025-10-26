@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.helper.RacingCarExceptionHelper;
 import racingcar.domain.RacingCar;
 
 public class RacingCarService {
@@ -36,10 +37,9 @@ public class RacingCarService {
     }
 
     public void validateCarNames(List<RacingCar> racingCarList) {
-        racingCarList.forEach(car -> {
-            if (car.getNameLength() > 5) {
-                throw new IllegalArgumentException("이름의 길이는 5를 넘어갈 수 없습니다.");
-            }
-        });
+        racingCarList.stream()
+                .filter(car -> car.getNameLength() > 5)
+                .findAny()
+                .ifPresent(car -> RacingCarExceptionHelper.racingCarNameLengthException());
     }
 }
