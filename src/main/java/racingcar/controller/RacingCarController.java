@@ -26,6 +26,7 @@ public class RacingCarController {
         List<RacingCar> cars = setupRacingCars(carName);
         executeRacing(cars, attemptCount);
         displayFinalResults(cars);
+        Console.close();
     }
 
     private String getValidatedCarNames(){
