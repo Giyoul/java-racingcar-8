@@ -26,10 +26,10 @@ public class ConsoleOutput {
     }
 
     public void finalResult(List<RacingCar> winnerRacingCarList) {
-        String result = "최종 우승자 : ";
-        for (var car : winnerRacingCarList) {
-            result = car.addName(result);
-        }
+        String result = "최종 우승자 : " +
+                winnerRacingCarList.stream()
+                    .map(RacingCar::getName)
+                    .collect(Collectors.joining(", "));
         System.out.println(result);
     }
 }

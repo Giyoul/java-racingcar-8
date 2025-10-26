@@ -17,11 +17,8 @@ public class RacingCar {
         return name + " : " + "-".repeat(position);
     }
 
-    public String addName(String target){
-        if (target.equals("최종 우승자 : ")) {
-            return target + name;
-        }
-        return target + ", " + name;
+    public String getName() {
+        return name;
     }
 
     public int getPosition() {
